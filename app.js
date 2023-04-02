@@ -7,15 +7,16 @@ const app = express();
 import path from "path";
 import dotenv from 'dotenv';
 dotenv.config();
-const __dirname = path.dirname(new URL(import.meta.url).pathname);
+
 
 //static files
-app.use(express.static(path.resolve("D:/testmern/test2/MernStack-Blog-App-Frontend/frontend/build")));
+app.use(express.static(path.resolve("./frontend/build")));
 
 app.get("/", function (req, res) {
-  res.sendFile(path.resolve(`D:/testmern/test2/MernStack-Blog-App-Frontend/frontend/build/index.html`))
-});
+  const filePath = path.resolve("./frontend/build/index.html");
 
+  res.sendFile(filePath);
+});
 
 app.use(cors());
 app.use(express.json());
