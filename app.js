@@ -13,10 +13,10 @@ const __dirname = path.dirname(__filename);
 console.log(__dirname)
 
 //static files
-app.use(express.static(path.resolve("./frontend/build")));
+app.use(express.static(path.resolve("/frontend/build")));
 
 app.get("/", function (req, res) {
-  res.sendFile(path.resolve("./frontend/build/index.html"));
+  res.sendFile(path.resolve("/frontend/build/index.html"));
 });
 
 
