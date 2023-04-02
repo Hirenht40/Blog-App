@@ -8,7 +8,7 @@
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "npm start",
-    "build": "npm i"
+    "build": "node ./buildScript"
   },
   "author": "",
   "license": "ISC",
