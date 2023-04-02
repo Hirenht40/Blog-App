@@ -15,7 +15,7 @@ console.log(__dirname)
 //static files
 app.use(express.static(path.resolve(__dirname, "./frontend/build")));
 
-app.get("/", function (req, res) {
+app.get("*", function (req, res) {
   const filePath = path.resolve(__dirname, "./frontend/build/index.html");
 
   res.sendFile(filePath);
