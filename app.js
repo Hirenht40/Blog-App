@@ -13,13 +13,12 @@ const __dirname = path.dirname(__filename);
 console.log(__dirname)
 
 //static files
-app.use(express.static(path.resolve(__dirname, "./frontend/build")));
+app.use(express.static(path.join(__dirname, "./frontend/build")));
 
-app.get("*", function (req, res) {
-  const filePath = path.resolve(__dirname, "./frontend/build/index.html");
-
-  res.sendFile(filePath);
+app.get("/", function (req, res) {
+  res.sendFile(path.join(__dirname, "./frontend/build/index.html"));
 });
+
 
 app.use(cors());
 app.use(express.json());
