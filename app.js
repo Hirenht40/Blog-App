@@ -7,13 +7,16 @@ const app = express();
 import path from "path";
 import dotenv from 'dotenv';
 dotenv.config();
+const __filename = new URL(import.meta.url).pathname.replace(/^\/([A-Z]:)/, "$1");
+const __dirname = path.dirname(__filename);
 
+console.log(__dirname)
 
 //static files
-app.use(express.static(path.resolve("./frontend/build")));
+app.use(express.static(path.resolve(__dirname, "./frontend/build")));
 
 app.get("/", function (req, res) {
-  const filePath = path.resolve("./frontend/build/index.html");
+  const filePath = path.resolve(__dirname, "./frontend/build/index.html");
 
   res.sendFile(filePath);
 });
